@@ -69,3 +69,4 @@ export * from './scene/scene.js';
 export * from './camera/camera.js';
 export * from './light/light.js';
 export * from './box/box.js';
+export * from './sphere/sphere.js';

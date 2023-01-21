@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import { Game, Scene, Camera, Light, Box } from '../game/game.js';
+	import { Game, Scene, Camera, Light, Box, Sphere } from '../game/game.js';
 
 	let element: HTMLCanvasElement;
 
@@ -14,13 +14,18 @@
 		game.Camera(camera.AddTo(scene));
 
 		const light = new Light('HemisphericLight');
-		light.setTarget(5, 20, 50);
+		light.setTarget(1, 1, 0);
 		light.AddTo(scene);
 
 		const box = new Box();
-		box.BuildOn(scene);
-		box.setPosition(0, 0, -10);
+		box.setPosition(0, 0, -20);
 		box.setRotation(2, 3);
+		box.BuildOn(scene);
+
+		const sphere = new Sphere();
+		sphere.setPosition(1, 1, -15);
+		sphere.setRotation(2, 3);
+		sphere.BuildOn(scene);
 
 		game.SwitchScene(scene);
 		game.Render();

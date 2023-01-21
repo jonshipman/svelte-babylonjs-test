@@ -1,32 +1,15 @@
 import * as BABYLON from 'babylonjs';
 
+import { Mesh } from '../mesh/mesh.js';
 import type { BoxInterface, BoxOptions } from './box.interface.js';
 
-export class Box implements BoxInterface {
-	box?: BABYLON.Mesh;
-	name = 'box';
+export class Box extends Mesh implements BoxInterface {
 	options: BoxOptions;
 
 	constructor(name = 'box', opts = {}) {
-		this.name = name;
+		super(name);
+
 		this.options = opts;
-	}
-
-	setPosition(x = 0, y = 0, z = 0) {
-		if (this.box) {
-			this.box.position = new BABYLON.Vector3(x, y, z);
-		} else {
-			throw new Error('setPosition after build');
-		}
-	}
-
-	setRotation(x = 0, y = 0) {
-		if (this.box) {
-			this.box.rotation.x = x;
-			this.box.rotation.y = y;
-		} else {
-			throw new Error('setRotation after build');
-		}
 	}
 
 	setDimensions(w = 0, h = 0, d = 0) {
@@ -88,8 +71,10 @@ export class Box implements BoxInterface {
 	}
 
 	BuildOn(scene: BABYLON.Scene) {
-		this.box = BABYLON.MeshBuilder.CreateBox('box', this.options, scene);
+		this.mesh = BABYLON.MeshBuilder.CreateBox(this.name, this.options, scene);
 
-		return this.box;
+		this.OnBuild();
+
+		return this.mesh;
 	}
 }

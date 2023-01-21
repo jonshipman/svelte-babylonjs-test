@@ -1,5 +1,7 @@
 import type * as BABYLON from 'babylonjs';
 
+import type { MeshInterface } from '../mesh/mesh.interface.js';
+
 export type BoxOptions = {
 	size?: number;
 	width?: number;
@@ -16,8 +18,6 @@ export type BoxOptions = {
 	updatable?: boolean;
 };
 
-export interface BoxInterface {
-	name: string;
-	box?: BABYLON.Mesh;
+export interface BoxInterface extends MeshInterface {
 	options?: BoxOptions;
 }
