@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { createScene } from '../scene/scene.js';
+	import { Render3D } from '../scene/scene.js';
 
 	let element: HTMLCanvasElement;
 
 	onMount(() => {
-		createScene(element);
+		Render3D(element);
 	});
 </script>
 
