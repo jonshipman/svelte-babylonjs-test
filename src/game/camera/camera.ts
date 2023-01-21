@@ -67,6 +67,8 @@ export class Camera extends Vector3 implements CameraInterface {
 				throw new Error('Incompatible Camera');
 		}
 
+		this.camera.attachControl(true);
+
 		return this.camera as BABYLON.TargetCamera;
 	}
 }

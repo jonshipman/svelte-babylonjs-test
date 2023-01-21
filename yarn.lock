@@ -5,6 +5,15 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@babylonjs/gui@npm:^5.43.0":
+  version: 5.43.0
+  resolution: "@babylonjs/gui@npm:5.43.0"
+  peerDependencies:
+    "@babylonjs/core": ^5.22.0
+  checksum: 4a37266f69a5e93cb61c544a0011230947a09f3826cec577aedf409681a025b7d1e1c6051e8f601180397690213944a465fded38d3fd184adb5636e23ebc3c63
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/android-arm64@npm:0.16.17"
@@ -1710,6 +1719,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jonshipman.com@workspace:."
   dependencies:
+    "@babylonjs/gui": ^5.43.0
     "@sveltejs/adapter-static": ^1.0.5
     "@sveltejs/kit": ^1.0.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
