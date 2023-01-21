@@ -9,17 +9,18 @@
 		const game = new Game(element);
 		const scene = new Scene(game.engine).scene;
 
-		const camera = new Camera();
-		camera.setTarget(0, 0, -7);
+		const camera = new Camera('ArcRotateCamera');
+		camera.setABR(Math.PI / 2, Math.PI / 2, 2);
 		game.Camera(camera.AddTo(scene));
 
-		const light = new Light();
-		light.setTarget(0, 0, -7);
+		const light = new Light('HemisphericLight');
+		light.setTarget(5, 20, 50);
 		light.AddTo(scene);
 
-		const box = new Box().BuildOn(scene);
-		box.rotation.x = 2;
-		box.rotation.y = 3;
+		const box = new Box();
+		box.BuildOn(scene);
+		box.setPosition(0, 0, -10);
+		box.setRotation(2, 3);
 
 		game.SwitchScene(scene);
 		game.Render();

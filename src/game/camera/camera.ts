@@ -18,6 +18,12 @@ export class Camera extends Vector3 implements CameraInterface {
 		this.type = type;
 	}
 
+	setABR(a = 0, b = 0, r = 0) {
+		this.alpha = a;
+		this.beta = b;
+		this.radius = r;
+	}
+
 	AddTo(scene: BABYLON.Scene) {
 		const CameraClass = BABYLON[this.type] as CameraType;
 

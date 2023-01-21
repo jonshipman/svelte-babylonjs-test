@@ -12,6 +12,23 @@ export class Box implements BoxInterface {
 		this.options = opts;
 	}
 
+	setPosition(x = 0, y = 0, z = 0) {
+		if (this.box) {
+			this.box.position = new BABYLON.Vector3(x, y, z);
+		} else {
+			throw new Error('setPosition after build');
+		}
+	}
+
+	setRotation(x = 0, y = 0) {
+		if (this.box) {
+			this.box.rotation.x = x;
+			this.box.rotation.y = y;
+		} else {
+			throw new Error('setRotation after build');
+		}
+	}
+
 	setDimensions(w = 0, h = 0, d = 0) {
 		this.setWidth(w);
 		this.setHeight(h);
