@@ -86,6 +86,14 @@ export class Sound {
 		this.skipCodecCheck = x;
 	}
 
+	Play() {
+		if (this.sound) {
+			this.sound.play();
+		} else {
+			throw new Error("trying to play a sound that's not there");
+		}
+	}
+
 	AddTo(scene: BABYLON.Scene) {
 		this.sound = new BABYLON.Sound(this.name, this.filepath, scene, this.callback, {
 			volume: this.volume,
