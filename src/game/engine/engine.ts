@@ -15,6 +15,8 @@ export class Engine implements EngineInterface {
 	constructor(element: HTMLCanvasElement) {
 		this.canvas = element;
 		this.engine = new BEngine(element, true);
+		window._CANVAS = element;
+		window._ENGINE = this.GetEngine();
 
 		this.listeners = {
 			resize: () => {
@@ -50,6 +52,7 @@ export class Engine implements EngineInterface {
 		}
 
 		this.scene = scene;
+		window._SCENE = this.GetScene();
 	}
 
 	GetScene() {
@@ -58,6 +61,14 @@ export class Engine implements EngineInterface {
 		}
 
 		return this.scene.scene as BScene;
+	}
+
+	GetEngine() {
+		if (!this.engine) {
+			throw new Error('No engine implemented.');
+		}
+
+		return this.engine as BEngine;
 	}
 
 	Loading() {
@@ -73,6 +84,8 @@ export class Engine implements EngineInterface {
 		for (const [k, v] of Object.entries(this.listeners)) {
 			window.removeEventListener(k, <(event: Event) => void>v);
 		}
+
+		window._ENGINE = null;
 	}
 
 	Render(callback: (() => void) | undefined = undefined) {

@@ -35,12 +35,17 @@ export class Scene implements SceneInterface {
 		await this.scene.whenReadyAsync();
 	}
 
+	GetScene() {
+		return this.scene;
+	}
+
 	DetachControl() {
 		this.scene.detachControl();
 	}
 
 	Dispose() {
 		this.scene.dispose();
+		window._SCENE = null;
 	}
 
 	Render() {
