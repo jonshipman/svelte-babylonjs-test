@@ -49,7 +49,7 @@ export class Start extends Scene {
 			if (this.playaction) {
 				this.playaction();
 			} else {
-				new Error('No play callback');
+				throw new Error('No play callback');
 			}
 		});
 
