@@ -1,8 +1,11 @@
 import { Color4 } from '@babylonjs/core';
-import { AdvancedDynamicTexture, Button, Control, Image, Rectangle } from '@babylonjs/gui';
+import { AdvancedDynamicTexture } from '@babylonjs/gui';
 
+import { Button } from '../button/button.js';
 import { Camera } from '../camera/camera.js';
+import { Image } from '../image/image.js';
 import { Light } from '../light/light.js';
+import { Rectangle } from '../rectangle/rectangle.js';
 import { Scene } from '../scene/scene.js';
 import { Sound } from '../sound/sound.js';
 
@@ -31,24 +34,11 @@ export class Start extends Scene {
 		const guiMenu = AdvancedDynamicTexture.CreateFullscreenUI('startmenu');
 		guiMenu.idealHeight = 720;
 
-		const imageRect = new Rectangle('titleContainer');
-		imageRect.width = 0.8;
-		imageRect.thickness = 0;
-		guiMenu.addControl(imageRect);
+		const imageRect = new Rectangle('titleContainer').Render(guiMenu).GetRectangle();
 
-		const startbg = new Image('startbg', '/sprites/start.png');
-		imageRect.addControl(startbg);
+		new Image('startbg', '/sprites/start.png').Render(imageRect);
 
-		const startBtn = Button.CreateSimpleButton('start', 'PLAY');
-		startBtn.width = 0.2;
-		startBtn.cornerRadius = 10;
-		startBtn.height = '40px';
-		startBtn.background = 'black';
-		startBtn.color = 'white';
-		startBtn.hoverCursor = 'pointer';
-		startBtn.thickness = 0;
-		startBtn.verticalAlignment = Control.VERTICAL_ALIGNMENT_CENTER;
-		guiMenu.addControl(startBtn);
+		const startBtn = new Button('start', 'PLAY').Render(imageRect);
 
 		startBtn.onPointerDownObservable.add(() => {
 			soundSelect.Play();
