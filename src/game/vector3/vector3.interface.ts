@@ -1,4 +1,4 @@
-import type * as BABYLON from 'babylonjs';
+import type BABYLON from '@babylonjs/core/Maths/math';
 
 export interface Vector3Interface {
 	target: BABYLON.Vector3;

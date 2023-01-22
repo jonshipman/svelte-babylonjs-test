@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from '@babylonjs/core';
 
 import { Vector3Direction } from '../vector3/vector3.js';
 import type { LightInterface, LightType } from './light.interface.js';

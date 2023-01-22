@@ -1,10 +1,10 @@
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from '@babylonjs/core';
 
-import { Light } from '../light/light.js';
 import { Box } from '../box/box.js';
-import type { Engine } from '../engine/engine.js';
-import type { SceneInterface } from './scene.interface.js';
 import { Camera } from '../camera/camera.js';
+import type { Engine } from '../engine/engine.js';
+import { Light } from '../light/light.js';
+import type { SceneInterface } from './scene.interface.js';
 
 export class Scene implements SceneInterface {
 	engine: BABYLON.Engine;
@@ -15,6 +15,9 @@ export class Scene implements SceneInterface {
 		this.scene = new BABYLON.Scene(engine.engine);
 	}
 
+	/**
+	 * Meant to be overridden in child classes.
+	 */
 	async Main() {
 		const camera = new Camera('ArcRotateCamera');
 		camera.setABR(Math.PI / 2, Math.PI / 2, 2);

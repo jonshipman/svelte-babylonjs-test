@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from '@babylonjs/core';
 import type { Vector3Interface, Vector3DirectionInterface } from './vector3.interface.js';
 
 export class Vector3 implements Vector3Interface {

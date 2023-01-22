@@ -1,4 +1,4 @@
-import type * as BABYLON from 'babylonjs';
+import type * as BABYLON from '@babylonjs/core';
 
 export interface MeshInterface {
 	name: string;

@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from '@babylonjs/core';
 
 import { Mesh } from '../mesh/mesh.js';
 import type { SphereInterface, SphereOptions } from './sphere.interface.js';

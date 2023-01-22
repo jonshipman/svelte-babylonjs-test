@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from '@babylonjs/core';
 
 import { Scene } from '../scene/scene.js';
 import type { EngineInterface } from './engine.interface.js';
