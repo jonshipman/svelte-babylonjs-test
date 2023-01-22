@@ -47,6 +47,7 @@ export class Start extends Scene {
 		const transition = new Transition(this);
 		transition.WhenDone(() => {
 			if (this.playaction) {
+				soundBg.Stop(true);
 				this.playaction();
 			} else {
 				throw new Error('No play callback');
@@ -56,7 +57,7 @@ export class Start extends Scene {
 		startBtn.onPointerDownObservable.add(async () => {
 			transition.Start();
 
-			soundSelect.Play();
+			soundSelect.Play(true);
 
 			this.DetachControl();
 		});

@@ -86,11 +86,31 @@ export class Sound {
 		this.skipCodecCheck = x;
 	}
 
-	Play() {
+	Play(dispose = false) {
 		if (this.sound) {
 			this.sound.play();
+
+			if (dispose) {
+				this.sound.onEndedObservable.add(() => {
+					if (this.sound) {
+						this.sound.dispose();
+					}
+				});
+			}
 		} else {
 			throw new Error("trying to play a sound that's not there");
+		}
+	}
+
+	Stop(dispose = false) {
+		if (this.sound) {
+			this.sound.stop();
+
+			if (dispose) {
+				this.sound.dispose();
+			}
+		} else {
+			throw new Error("trying to stop a sound that's not there");
 		}
 	}
 
