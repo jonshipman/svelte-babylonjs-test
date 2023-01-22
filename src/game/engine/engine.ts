@@ -60,7 +60,7 @@ export class Engine implements EngineInterface {
 			throw new Error('No scene implemented. Run `SwitchScene` before `GetScene`');
 		}
 
-		return this.scene.scene as BScene;
+		return this.scene.GetScene() as BScene;
 	}
 
 	GetEngine() {

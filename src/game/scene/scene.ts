@@ -11,8 +11,8 @@ export class Scene implements SceneInterface {
 	scene: BScene;
 
 	constructor(engine: Engine) {
-		this.engine = engine.engine;
-		this.scene = new BScene(engine.engine);
+		this.engine = engine.GetEngine();
+		this.scene = new BScene(this.engine);
 	}
 
 	/**
