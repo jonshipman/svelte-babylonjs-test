@@ -1,4 +1,4 @@
-import * as BABYLON from '@babylonjs/core';
+import { Color4 } from '@babylonjs/core';
 import { AdvancedDynamicTexture, Button, Control, Image, Rectangle } from '@babylonjs/gui';
 
 import { Camera } from '../camera/camera.js';
@@ -16,7 +16,7 @@ export class Start extends Scene {
 		light.setTarget(1, 1, 0);
 		light.AddTo(this.scene);
 
-		this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
+		this.scene.clearColor = new Color4(0, 0, 0, 1);
 
 		const soundBg = new Sound('/sounds/start.mp3');
 		soundBg.setVolume(0.005);

@@ -1,4 +1,4 @@
-import * as BABYLON from '@babylonjs/core';
+import { MeshBuilder, Scene as BScene, Vector4 } from '@babylonjs/core';
 
 import { Mesh } from '../mesh/mesh.js';
 import type { SphereInterface, SphereOptions } from './sphere.interface.js';
@@ -44,11 +44,11 @@ export class Sphere extends Mesh implements SphereInterface {
 		this.options.sideOrientation = x;
 	}
 
-	setFrontUVs(x: BABYLON.Vector4) {
+	setFrontUVs(x: Vector4) {
 		this.options.frontUVs = x;
 	}
 
-	setBackUVs(x: BABYLON.Vector4) {
+	setBackUVs(x: Vector4) {
 		this.options.backUVs = x;
 	}
 
@@ -56,8 +56,8 @@ export class Sphere extends Mesh implements SphereInterface {
 		this.options.updatable = x;
 	}
 
-	BuildOn(scene: BABYLON.Scene) {
-		this.mesh = BABYLON.MeshBuilder.CreateSphere(this.name, this.options, scene);
+	BuildOn(scene: BScene) {
+		this.mesh = MeshBuilder.CreateSphere(this.name, this.options, scene);
 
 		this.OnBuild();
 

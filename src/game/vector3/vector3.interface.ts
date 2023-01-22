@@ -1,9 +1,9 @@
-import type BABYLON from '@babylonjs/core/Maths/math';
+import type { Vector3 as BVector3 } from '@babylonjs/core';
 
 export interface Vector3Interface {
-	target: BABYLON.Vector3;
+	target: BVector3;
 }
 
 export interface Vector3DirectionInterface extends Vector3Interface {
-	direction: BABYLON.Vector3;
+	direction: BVector3;
 }

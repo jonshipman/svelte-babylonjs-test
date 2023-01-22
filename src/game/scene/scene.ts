@@ -1,4 +1,4 @@
-import * as BABYLON from '@babylonjs/core';
+import { Engine as BEngine, Scene as BScene } from '@babylonjs/core';
 
 import { Box } from '../box/box.js';
 import { Camera } from '../camera/camera.js';
@@ -7,12 +7,12 @@ import { Light } from '../light/light.js';
 import type { SceneInterface } from './scene.interface.js';
 
 export class Scene implements SceneInterface {
-	engine: BABYLON.Engine;
-	scene: BABYLON.Scene;
+	engine: BEngine;
+	scene: BScene;
 
 	constructor(engine: Engine) {
 		this.engine = engine.engine;
-		this.scene = new BABYLON.Scene(engine.engine);
+		this.scene = new BScene(engine.engine);
 	}
 
 	/**

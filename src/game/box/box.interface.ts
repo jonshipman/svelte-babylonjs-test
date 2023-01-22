@@ -1,4 +1,4 @@
-import type * as BABYLON from '@babylonjs/core';
+import type { Color4, Vector4 } from '@babylonjs/core';
 
 import type { MeshInterface } from '../mesh/mesh.interface.js';
 
@@ -7,11 +7,11 @@ export type BoxOptions = {
 	width?: number;
 	height?: number;
 	depth?: number;
-	faceUV?: BABYLON.Vector4[];
-	faceColors?: BABYLON.Color4[];
+	faceUV?: /*  */ Vector4[];
+	faceColors?: /*  */ Color4[];
 	sideOrientation?: number;
-	frontUVs?: BABYLON.Vector4;
-	backUVs?: BABYLON.Vector4;
+	frontUVs?: /*  */ Vector4;
+	backUVs?: /*  */ Vector4;
 	wrap?: boolean;
 	topBaseAt?: number;
 	bottomBaseAt?: number;

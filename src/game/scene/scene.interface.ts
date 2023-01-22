@@ -1,6 +1,6 @@
-import type * as BABYLON from '@babylonjs/core';
+import type { Engine as BEngine, Scene as BScene } from '@babylonjs/core';
 
 export interface SceneInterface {
-	engine: BABYLON.Engine;
-	scene: BABYLON.Scene;
+	engine: BEngine;
+	scene: BScene;
 }

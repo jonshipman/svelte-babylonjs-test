@@ -1,4 +1,4 @@
-import * as BABYLON from '@babylonjs/core';
+import { Engine as BEngine, Scene as BScene, TargetCamera } from '@babylonjs/core';
 
 import { Scene } from '../scene/scene.js';
 import type { EngineInterface } from './engine.interface.js';
@@ -6,15 +6,15 @@ import type { EngineInterface } from './engine.interface.js';
 export class Engine implements EngineInterface {
 	scene: Scene | undefined;
 	canvas: HTMLCanvasElement;
-	engine: BABYLON.Engine;
-	camera: BABYLON.TargetCamera | undefined;
+	engine: BEngine;
+	camera: TargetCamera | undefined;
 	listeners;
 	debounceResize?: NodeJS.Timeout;
 	mounted = false;
 
 	constructor(element: HTMLCanvasElement) {
 		this.canvas = element;
-		this.engine = new BABYLON.Engine(element, true);
+		this.engine = new BEngine(element, true);
 
 		this.listeners = {
 			resize: () => {
@@ -57,7 +57,7 @@ export class Engine implements EngineInterface {
 			throw new Error('No scene implemented. Run `SwitchScene` before `GetScene`');
 		}
 
-		return this.scene.scene as BABYLON.Scene;
+		return this.scene.scene as BScene;
 	}
 
 	Loading() {

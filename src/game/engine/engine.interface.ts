@@ -1,4 +1,4 @@
-import type * as BABYLON from '@babylonjs/core';
+import type { Engine as BEngine, TargetCamera } from '@babylonjs/core';
 
 import type { Scene } from '../scene/scene.js';
 
@@ -9,9 +9,9 @@ type Listeners = {
 export interface EngineInterface {
 	scene: Scene | undefined;
 	canvas: HTMLCanvasElement;
-	engine: BABYLON.Engine;
+	engine: BEngine;
 	listeners: Listeners | object;
-	camera: BABYLON.TargetCamera | undefined;
+	camera: TargetCamera | undefined;
 	debounceResize?: NodeJS.Timeout;
 	mounted: boolean;
 }

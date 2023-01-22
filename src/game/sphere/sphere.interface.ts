@@ -1,4 +1,4 @@
-import type * as BABYLON from '@babylonjs/core';
+import type { Vector4 } from '@babylonjs/core';
 
 import type { MeshInterface } from '../mesh/mesh.interface.js';
 
@@ -11,8 +11,8 @@ export type SphereOptions = {
 	arc?: number;
 	slice?: number;
 	sideOrientation?: number;
-	frontUVs?: BABYLON.Vector4;
-	backUVs?: BABYLON.Vector4;
+	frontUVs?: Vector4;
+	backUVs?: Vector4;
 	updatable?: boolean;
 };
 

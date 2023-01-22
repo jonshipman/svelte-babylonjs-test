@@ -1,4 +1,4 @@
-import * as BABYLON from '@babylonjs/core';
+import { Mesh as BMesh, Vector3 as BVector3 } from '@babylonjs/core';
 
 import type { MeshInterface } from './mesh.interface.js';
 
@@ -6,7 +6,7 @@ export class Mesh implements MeshInterface {
 	private afterbuild: (() => void)[];
 
 	name = 'mesh';
-	mesh?: BABYLON.Mesh;
+	mesh?: BMesh;
 
 	constructor(name = 'mesh') {
 		this.name = name;
@@ -16,7 +16,7 @@ export class Mesh implements MeshInterface {
 	setPosition(x = 0, y = 0, z = 0) {
 		const exec = () => {
 			if (this.mesh) {
-				this.mesh.position = new BABYLON.Vector3(x, y, z);
+				this.mesh.position = new BVector3(x, y, z);
 			}
 		};
 

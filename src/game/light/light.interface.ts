@@ -1,19 +1,18 @@
-import type * as BABYLON from '@babylonjs/core';
+import type { Light as BLight } from '@babylonjs/core';
 
 import type { Vector3DirectionInterface } from '../vector3/vector3.interface.js';
 
-export type LightType =
-	| {
-			new (): BABYLON.SpotLight;
-	  }
-	| { new (n: string, t: BABYLON.Vector3, s: BABYLON.Scene): BABYLON.PointLight }
-	| { new (n: string, t: BABYLON.Vector3, s: BABYLON.Scene): BABYLON.HemisphericLight }
-	| { new (n: string, t: BABYLON.Vector3, s: BABYLON.Scene): BABYLON.DirectionalLight };
+export enum LIGHTS {
+	PointLight = 0,
+	DirectionalLight = 1,
+	HemisphericLight = 2,
+	SpotLight = 3
+}
 
 export interface LightInterface extends Vector3DirectionInterface {
-	light: BABYLON.Light | undefined;
+	light: BLight | undefined;
 	name: string;
-	type: keyof typeof BABYLON;
+	type: keyof typeof LIGHTS;
 	angle: number;
 	exponent: number;
 }

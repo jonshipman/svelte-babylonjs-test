@@ -1,9 +1,9 @@
-import * as BABYLON from '@babylonjs/core';
+import { Scene as BScene, Sound as BSound } from '@babylonjs/core';
 
 export class Sound {
 	private name: string;
 	private filepath: string;
-	private sound?: BABYLON.Sound;
+	private sound?: BSound;
 	private callback: Nullable<() => void>;
 	private volume = 1;
 	private loop = false;
@@ -94,8 +94,8 @@ export class Sound {
 		}
 	}
 
-	AddTo(scene: BABYLON.Scene) {
-		this.sound = new BABYLON.Sound(this.name, this.filepath, scene, this.callback, {
+	AddTo(scene: BScene) {
+		this.sound = new BSound(this.name, this.filepath, scene, this.callback, {
 			volume: this.volume,
 			loop: this.loop,
 			autoplay: this.autoplay,

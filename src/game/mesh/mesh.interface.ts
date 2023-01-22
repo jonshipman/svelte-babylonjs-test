@@ -1,6 +1,6 @@
-import type * as BABYLON from '@babylonjs/core';
+import type { Mesh as BMesh } from '@babylonjs/core';
 
 export interface MeshInterface {
 	name: string;
-	mesh?: BABYLON.Mesh;
+	mesh?: BMesh;
 }
