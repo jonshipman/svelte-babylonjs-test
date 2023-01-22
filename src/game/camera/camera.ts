@@ -11,10 +11,7 @@ import {
 } from '@babylonjs/core';
 
 import { Vector3 } from '../vector3/vector3.js';
-import type {
-	CameraInterface,
-	CAMERAS
-} from './camera.interface.js';
+import type { CameraInterface, CAMERAS } from './camera.interface.js';
 
 export class Camera extends Vector3 implements CameraInterface {
 	name = 'camera';
@@ -35,6 +32,14 @@ export class Camera extends Vector3 implements CameraInterface {
 		this.alpha = a;
 		this.beta = b;
 		this.radius = r;
+	}
+
+	GetCamera() {
+		if (!this.camera) {
+			throw new Error('No camera initialized');
+		}
+
+		return this.camera;
 	}
 
 	AddTo(scene: BScene) {
@@ -81,6 +86,6 @@ export class Camera extends Vector3 implements CameraInterface {
 
 		this.camera.attachControl(true);
 
-		return this.camera as TargetCamera;
+		return this;
 	}
 }

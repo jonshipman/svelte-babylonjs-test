@@ -52,6 +52,7 @@ export class Engine implements EngineInterface {
 		}
 
 		this.scene = scene;
+		this.camera = scene.GetCamera();
 		window._SCENE = this.GetScene();
 	}
 

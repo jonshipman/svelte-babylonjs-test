@@ -1,4 +1,4 @@
-import { Engine as BEngine, Scene as BScene } from '@babylonjs/core';
+import { Engine as BEngine, Scene as BScene, TargetCamera } from '@babylonjs/core';
 
 import { Box } from '../box/box.js';
 import { Camera } from '../camera/camera.js';
@@ -9,6 +9,7 @@ import type { SceneInterface } from './scene.interface.js';
 export class Scene implements SceneInterface {
 	engine: BEngine;
 	scene: BScene;
+	camera: TargetCamera | undefined = undefined;
 
 	constructor(engine: Engine) {
 		this.engine = engine.GetEngine();
@@ -22,6 +23,7 @@ export class Scene implements SceneInterface {
 		const camera = new Camera('ArcRotateCamera');
 		camera.setABR(Math.PI / 2, Math.PI / 2, 2);
 		camera.AddTo(this.scene);
+		this.camera = camera.GetCamera();
 
 		const light = new Light('HemisphericLight');
 		light.setTarget(1, 1, 0);
@@ -33,6 +35,12 @@ export class Scene implements SceneInterface {
 		box.BuildOn(this.scene);
 
 		await this.scene.whenReadyAsync();
+
+		return this;
+	}
+
+	GetCamera() {
+		return this.camera as TargetCamera;
 	}
 
 	GetScene() {
