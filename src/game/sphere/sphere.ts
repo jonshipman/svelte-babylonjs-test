@@ -1,10 +1,10 @@
 import { MeshBuilder, Scene as BScene, Vector4 } from '@babylonjs/core';
 
 import { Mesh } from '../mesh/mesh.js';
-import type { SphereInterface, SphereOptions } from './sphere.interface.js';
+import type { SphereOptions } from './sphere.interface.js';
 
-export class Sphere extends Mesh implements SphereInterface {
-	options: SphereOptions;
+export class Sphere extends Mesh {
+	private options: SphereOptions;
 
 	constructor(name = 'sphere', opts = {}) {
 		super(name);

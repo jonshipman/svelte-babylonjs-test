@@ -1,7 +1,5 @@
 import type { Vector4 } from '@babylonjs/core';
 
-import type { MeshInterface } from '../mesh/mesh.interface.js';
-
 export type SphereOptions = {
 	segments?: number;
 	diameter?: number;
@@ -15,7 +13,3 @@ export type SphereOptions = {
 	backUVs?: Vector4;
 	updatable?: boolean;
 };
-
-export interface SphereInterface extends MeshInterface {
-	options?: SphereOptions;
-}
