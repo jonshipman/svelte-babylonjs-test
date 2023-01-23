@@ -2,6 +2,8 @@
 
 I'm just playing around with sveltejs and babylonjs.
 
+@see https://doc.babylonjs.com/guidedLearning/createAGame
+
 ## Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
