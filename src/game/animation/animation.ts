@@ -33,7 +33,7 @@ export class Animation {
 	flipU = true;
 	maxAnimationFrames = 8;
 	speed = 0.005;
-	spriteIndex = 24;
+	spriteIndex = 0;
 	_scene?: BScene;
 	_assetsManager?: AssetsManager;
 
