@@ -118,12 +118,14 @@ export class Animation {
 				const per = 1 / this.maxAnimationFrames;
 				const speed = this.speed;
 
-				for (let i = 1; i < this.maxAnimationFrames; i++) {
-					let nextFrame = i + 1;
+				for (let i = 1; i <= this.maxAnimationFrames; i++) {
+					let nextFrame = this.spriteIndex + i;
 
-					if (i === this.maxAnimationFrames - 1) {
+					if (i === this.maxAnimationFrames) {
 						nextFrame = this.spriteIndex;
 					}
+
+					console.log(this.spriteIndex, i - 1, nextFrame, per * i, speed);
 
 					background.addAnimationToTile(this.spriteIndex, i - 1, nextFrame, per * i, speed);
 				}
