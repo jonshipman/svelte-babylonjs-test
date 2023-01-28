@@ -125,8 +125,6 @@ export class Animation {
 						nextFrame = this.spriteIndex;
 					}
 
-					console.log(this.spriteIndex, i - 1, nextFrame, per * i, speed);
-
 					background.addAnimationToTile(this.spriteIndex, i - 1, nextFrame, per * i, speed);
 				}
 			};
