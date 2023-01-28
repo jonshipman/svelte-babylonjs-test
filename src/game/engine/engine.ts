@@ -31,29 +31,30 @@ export class Engine implements EngineInterface {
 		};
 	}
 
-	async SwitchScene(scene: Scene | undefined = undefined) {
+	async SwitchScene(scene?: Scene) {
 		if (!scene) {
 			scene = new Scene(this);
 		}
 
 		const Done = this.Loading();
+		const previousScene = this.scene;
 
-		if (this.scene) {
-			this.scene.DetachControl();
-		}
-
-		await scene.Main();
-
-		Done();
-
-		if (this.scene) {
-			this.scene.Dispose();
-			this.scene = undefined;
+		if (previousScene) {
+			previousScene.DetachControl();
 		}
 
 		this.scene = scene;
-		this.camera = scene.GetCamera();
 		window._SCENE = this.GetScene();
+
+		await this.scene.Main();
+
+		Done();
+
+		if (previousScene) {
+			previousScene.Dispose();
+		}
+
+		this.camera = scene.GetCamera();
 	}
 
 	GetScene() {

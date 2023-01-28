@@ -23,6 +23,10 @@ export class Light extends Vector3Direction implements LightInterface {
 		this.type = type;
 	}
 
+	Add() {
+		return this.AddTo(window._SCENE as Scene);
+	}
+
 	AddTo(scene: Scene) {
 		switch (this.type) {
 			case 'PointLight':

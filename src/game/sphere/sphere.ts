@@ -56,6 +56,10 @@ export class Sphere extends Mesh {
 		this.options.updatable = x;
 	}
 
+	Build() {
+		return this.BuildOn(window._SCENE as BScene);
+	}
+
 	BuildOn(scene: BScene) {
 		this.mesh = MeshBuilder.CreateSphere(this.name, this.options, scene);
 

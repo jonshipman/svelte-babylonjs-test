@@ -114,6 +114,10 @@ export class Sound {
 		}
 	}
 
+	Add() {
+		return this.AddTo(window._SCENE as BScene);
+	}
+
 	AddTo(scene: BScene) {
 		this.sound = new BSound(this.name, this.filepath, scene, this.callback, {
 			volume: this.volume,

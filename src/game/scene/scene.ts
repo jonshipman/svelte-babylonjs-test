@@ -53,7 +53,6 @@ export class Scene implements SceneInterface {
 
 	Dispose() {
 		this.scene.dispose();
-		window._SCENE = null;
 	}
 
 	Render() {

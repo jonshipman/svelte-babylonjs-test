@@ -70,6 +70,10 @@ export class Box extends Mesh implements BoxInterface {
 		this.options.updatable = x;
 	}
 
+	Build() {
+		return this.BuildOn(window._SCENE as BScene);
+	}
+
 	BuildOn(scene: BScene) {
 		this.mesh = MeshBuilder.CreateBox(this.name, this.options, scene);
 

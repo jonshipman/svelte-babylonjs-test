@@ -42,6 +42,10 @@ export class Camera extends Vector3 implements CameraInterface {
 		return this.camera;
 	}
 
+	Add() {
+		return this.AddTo(window._SCENE as BScene);
+	}
+
 	AddTo(scene: BScene) {
 		switch (this.type) {
 			case 'DeviceOrientationCamera':
