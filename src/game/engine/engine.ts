@@ -4,10 +4,10 @@ import { Scene } from '../scene/scene.js';
 import type { EngineInterface } from './engine.interface.js';
 
 export class Engine implements EngineInterface {
-	scene: Scene | undefined;
+	scene?: Scene;
 	canvas: HTMLCanvasElement;
 	engine: BEngine;
-	camera: TargetCamera | undefined;
+	camera?: TargetCamera;
 	listeners;
 	debounceResize?: NodeJS.Timeout;
 	mounted = false;
@@ -107,5 +107,7 @@ export class Engine implements EngineInterface {
 
 			this.scene.Render();
 		});
+
+		return this;
 	}
 }

@@ -1,3 +1,4 @@
+import { Cutscene } from './cutscene/cutscene.js';
 import { Engine } from './engine/engine.js';
 import { State } from './game.interface.js';
 import { Scene } from './scene/scene.js';
@@ -22,11 +23,16 @@ export class Game {
 	private async GoToStart() {
 		const start = new Start(this.engine);
 		await this.engine.SwitchScene(start);
-		start.OnPlay(async () => {
-			await this.engine.SwitchScene(new Scene(this.engine));
-		});
+		start.OnPlay(() => this.GoToCutscene());
 
 		this.state = State.START;
+	}
+
+	private async GoToCutscene() {
+		const cutscene = new Cutscene(this.engine);
+		await this.engine.SwitchScene(cutscene);
+
+		this.state = State.CUTSCENE;
 	}
 
 	Destroy() {

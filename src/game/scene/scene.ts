@@ -58,5 +58,7 @@ export class Scene implements SceneInterface {
 
 	Render() {
 		this.scene.render();
+
+		return this;
 	}
 }

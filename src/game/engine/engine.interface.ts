@@ -7,11 +7,11 @@ type Listeners = {
 };
 
 export interface EngineInterface {
-	scene: Scene | undefined;
+	scene?: Scene;
 	canvas: HTMLCanvasElement;
 	engine: BEngine;
 	listeners: Listeners | object;
-	camera: TargetCamera | undefined;
+	camera?: TargetCamera;
 	debounceResize?: NodeJS.Timeout;
 	mounted: boolean;
 }
